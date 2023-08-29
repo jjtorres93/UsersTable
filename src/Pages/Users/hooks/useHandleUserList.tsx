@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useGetUsers } from "./useGetUsers";
 
 export const useHandleUserList = () => {
-    const {users, setUsers} = useGetUsers();
+    const {users, setUsers, originalUsers} = useGetUsers();
     const [showColors, setShowColors] = useState(false);
     const [sort, setSort] = useState(false);
 
@@ -19,11 +19,15 @@ export const useHandleUserList = () => {
         setShowColors((prev) => !prev);
     }
 
+    const restoreData = () => {
+        setUsers(originalUsers.current)
+    }
+
     const sortedUsers = sort
 ? users.toSorted((a, b) => {
         return a.location.country?.localeCompare(b.location.country)
     })
 : users;
 
-    return {toggleColor, showColors, toggleSort, sortedUsers, deleteUser}
+    return {toggleColor, showColors, toggleSort, sortedUsers, deleteUser, restoreData}
 }

@@ -1,3 +1,18 @@
-td :hover{
-    background-color: blue;
+.action-btn{
+    border: 1px solid black;
+}
+
+tr:hover .action-btn {
+    background-color: #6495ED;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+  }
+
+tr:hover td{
+    background-color: #adcae6;
 }

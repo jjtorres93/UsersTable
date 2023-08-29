@@ -38,7 +38,7 @@ export function UsersList ({users, showColors, deleteUser}: UsersListProps) {
                             {user.location.country}
                         </td>
                         <td>
-                            <button
+                            <button className="action-btn"
                                 onClick={() => {
                                     deleteUser(user.login.uuid)
                                 }}
