@@ -1,3 +1,10 @@
+declare global {
+    interface Array<T> {
+        // eslint-disable-next-line @typescript-eslint/method-signature-style
+        toSorted(compareFn?: (a: T, b: T) => number): T[]
+    }
+}
+
 export interface QueryResults {
     results: User[];
     info: Info;
@@ -44,7 +51,7 @@ export interface Location {
     street?: Street;
     city?: string;
     state?: string;
-    country?: string;
+    country: string;
     postcode?: number | string;
     coordinates?: Coordinates;
     timezone?: Timezone;
