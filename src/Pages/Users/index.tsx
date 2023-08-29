@@ -2,7 +2,7 @@ import { UsersList } from "./components/UsersList";
 import { useHandleUserList } from "./hooks/useHandleUserList"
 
 const Users: React.FC = () => {
-    const {showColors, toggleColor, toggleSort, sortedUsers} = useHandleUserList();
+    const {showColors, toggleColor, toggleSort, sortedUsers, deleteUser} = useHandleUserList();
     return (
         <div>
             <h1>Users</h1>
@@ -10,7 +10,7 @@ const Users: React.FC = () => {
                 <button onClick={toggleColor}>Mostrar colores</button>
                 <button onClick={toggleSort}>Ordenar por país</button>
             </header>
-            <UsersList showColors={showColors} users={sortedUsers} />
+            <UsersList showColors={showColors} users={sortedUsers} deleteUser={deleteUser} />
         </div>
     )
 }

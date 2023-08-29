@@ -73,7 +73,7 @@ export interface Timezone {
 }
 
 export interface Login {
-    uuid?: string;
+    uuid: string;
     username?: string;
     password?: string;
     salt?: string;

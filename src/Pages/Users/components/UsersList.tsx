@@ -3,10 +3,11 @@ import '../style/users.css'
 
 interface UsersListProps {
     showColors: boolean
-    users: User[]
+    users: User[],
+    deleteUser: (userId: string) => void;
 }
 
-export function UsersList ({users, showColors}: UsersListProps) {
+export function UsersList ({users, showColors, deleteUser}: UsersListProps) {
     return (
         <table width="100%" >
         <thead>
@@ -39,7 +40,7 @@ export function UsersList ({users, showColors}: UsersListProps) {
                         <td>
                             <button
                                 onClick={() => {
-                                    console.log(user.login.uuid)
+                                    deleteUser(user.login.uuid)
                                 }}
                             >
                                 Borrar

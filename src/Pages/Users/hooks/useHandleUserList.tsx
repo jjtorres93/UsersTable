@@ -2,9 +2,14 @@ import { useState } from "react";
 import { useGetUsers } from "./useGetUsers";
 
 export const useHandleUserList = () => {
-    const {users} = useGetUsers();
+    const {users, setUsers} = useGetUsers();
     const [showColors, setShowColors] = useState(false);
     const [sort, setSort] = useState(false);
+
+    const deleteUser = (userId: string) => {
+        const filteredUsers = users.filter((user) => user.login.uuid !== userId)
+        setUsers(filteredUsers);
+    }
 
     const toggleSort = () => {
         setSort((prev) => (!prev));
@@ -20,5 +25,5 @@ export const useHandleUserList = () => {
     })
 : users;
 
-    return {toggleColor, showColors, toggleSort, sortedUsers}
+    return {toggleColor, showColors, toggleSort, sortedUsers, deleteUser}
 }
